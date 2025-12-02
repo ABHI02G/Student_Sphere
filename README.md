@@ -1,32 +1,5 @@
 # 🎓 StudentSphere
 
-StudentSphere is a full-stack **student life management dashboard** that brings together academics, lifestyle planning, notes and optional AI study tools into one polished app.
-
-- **Frontend:** HTML, JavaScript, Tailwind CSS  
-- **Backend:** Python (Flask) + Firebase (Auth & Firestore)  
-
-> Smart dashboard for students — marks & attendance, habits, timetable, notes, calendar sync, and optional GPT-powered features.
-
----
-
-## 🚀 Quick repo description
-
-**StudentSphere — Full-stack student life dashboard (Flask, Firebase, Tailwind)**
-
----
-
-## ✨ Features
-
-- 📊 **Academics:** marks & attendance tracking and summaries  
-- 🧭 **Lifestyle:** timetable, habit tracker, progress overview  
-- 📝 **Notes:** simple notepad with CRUD operations  
-- 🤖 **AI (optional):** auto-notes and quiz generation via GPT API  
-- 🔐 **Auth:** Firebase-backed authentication + JWT session support
-
----
-
-# 🎓 StudentSphere
-
 StudentSphere is a full-stack **student life management dashboard** that brings together academics, lifestyle planning, notes, calendar sync, and optional AI study tools into one polished app.
 
 - **Frontend:** HTML, JavaScript, Tailwind CSS  
