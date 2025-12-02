@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Sphere — Learn Smarter</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='astyle.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="header glass-nav reveal">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">Student Sphere</a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero-section reveal">
+        <div class="hero-text">
+            <h1 class="title-animate">Your Smart Academic Companion</h1>
+            <p>
+                From AI-driven homework help to daily study tracking and grade prediction,
+                Student Sphere keeps your academic life organized, optimized, and effortless.
+            </p>
+
+            <a href="/login" class="get-started-btn glow-btn">Get Started</a>
+        </div>
+
+        <div class="parallax-container">
+           <div id="computer">
+        </div>
+    </section>
+
+
+    <!-- FEATURES -->
+    <section id="features" class="features-section reveal">
+        <h2 class="section-title">Why Students Love Us</h2>
+
+        <div class="features-grid">
+            <div class="feature-card glass hover-rise">
+                <h3>AI Homework Solver</h3>
+                <p>Clean, step-by-step solutions with perfect formatting.</p>
+            </div>
+
+            <div class="feature-card glass hover-rise">
+                <h3>Daily Tracker</h3>
+                <p>Track your habits with beautiful visual analytics.</p>
+            </div>
+
+            <div class="feature-card glass hover-rise">
+                <h3>Grade Prediction</h3>
+                <p>Regression models predicting your academic growth.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TEAM -->
+    <section id="team" class="team-section reveal">
+        <h2 class="section-title">Meet the Team</h2>
+
+        <div class="team-grid">
+
+            <div class="team-card glass hover-rise">
+                <h3>Karan</h3>
+                <p>Backend & AI Integration</p>
+            </div>
+
+            <div class="team-card glass hover-rise">
+                <h3>Zain</h3>
+                <p>Frontend, UI Engineering & ML</p>
+            </div>
+
+            <div class="team-card glass hover-rise">
+                <h3>Ganesh</h3>
+                <p>Cybersecurity & Backend Systems</p>
+            </div>
+
+            <div class="team-card glass hover-rise">
+                <h3>Abhinav</h3>
+                <p>UI / UX Designer</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section reveal">
+        <h2 class="section-title">Get in Touch</h2>
+
+        <form class="contact-form glass" onsubmit="handleContactSubmit(event)">
+            <input name="name" type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Message"></textarea>
+            <button class="send-btn">Send Message</button>
+        </form>
+    </section>
+
+    <script src="{{ url_for('static', filename='ascript.js') }}"></script>
+
+</body>
+</html>

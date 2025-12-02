@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <!-- Link Flask static CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container" id="container">
+    <div class="gradient"></div>
+
+    <!-- Sign Up Form -->
+    <div class="form-container sign-up-container">
+        <form action="{{ url_for('register_user') }}" method="POST">
+            <h1>Create Account</h1>
+
+            <div class="social-container">
+                <a onclick="googleLogin()" class="social"><i class="fab fa-google"></i></a>
+            </div>
+
+            <span>or use your email for registration</span>
+            
+            <input type="text" name="name" placeholder="Name" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Password" required />
+            
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <!-- Sign In Form -->
+    <div class="form-container sign-in-container">
+        <form action="{{ url_for('login_user') }}" method="POST">
+            <h1>Login</h1>
+
+            <div class="social-container">
+                <a onclick="googleLogin()" class="social"><i class="fab fa-google"></i></a>
+            </div>
+
+            <span>or use your account</span>
+
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Password" required />
+            
+            <a href="#" class="forgot-password">Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Overlay Panels -->
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us, please login with your personal info</p>
+                <button class="ghost" id="signIn">Login</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start your journey with us</p>
+                <button class="ghost" id="signUp">Create Account</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
+<script>
+    // Firebase config (lightweight for Google login)
+    const firebaseConfig = {
+        apiKey: "AIzaSyB1fOpNGIOLzrvajGSAN-nJ2BWc5W87Vng",
+        authDomain: "stud-3ecff.firebaseapp.com"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    function googleLogin() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        auth.signInWithPopup(provider)
+        .then((result) => {
+            console.log("User:", result.user.email);
+
+            // redirect to homepage (about)
+            window.location.href = "/";
+        })
+        .catch((error) => {
+            console.log("Google login error:", error);
+            alert("Google login failed.");
+        });
+    }
+</script>
+
+<!-- Flask static JS -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

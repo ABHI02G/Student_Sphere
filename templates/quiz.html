@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Quiz & Assignment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='quiz.css') }}">
+</head>
+
+<body>
+
+    <div id="sidebar" class="sidebar">
+        <h2 class="side-title">Menu</h2>
+        <a href="/dashboard">Dashboard</a>
+        <a href="#">Tracker</a>
+        <a href="#">Math Solver</a>
+        <a href="#">Quiz</a>
+        <a href="#">Assignment</a>
+        <a href="#">Logout</a>
+    </div>
+
+    <div id="pageContent" class="page-content">
+
+        <button id="menuToggle" class="hamburger">
+            <span></span><span></span><span></span>
+        </button>
+
+        <h1 class="page-title">QUIZ & ASSIGNMENT</h1>
+
+        <div class="xp-box main-xp">
+            <p><b>Total XP:</b> <span id="xpValue">0</span></p>
+            <div class="xp-bar">
+                <div id="xpFill"></div>
+            </div>
+        </div>
+
+        <div id="quizInputForm" class="section-box">
+            <h2 class="sub-title">Content Generator 🚀</h2>
+            <p>Select the criteria for your Quiz or Assignment.</p>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px; margin-bottom: 25px;">
+                <select id="selectClass" required style="flex: 1;">
+                    <option value="">Select Class</option>
+                    <option value="5th">5th Grade</option>
+                    <option value="6th">6th Grade</option>
+                    <option value="7th">7th Grade</option>
+                    <option value="8th">8th Grade</option>
+                    <option value="9th">9th Grade</option>
+                    <option value="10th">10th Grade</option>
+                    <option value="11th">11th Grade</option>
+                    <option value="12th">12th Grade</option>
+                </select>
+                <input type="text" id="inputSubject" placeholder="Subject (e.g., Physics)" required style="flex: 1;">
+                <input type="text" id="inputLanguage" placeholder="Language (e.g., English)" required style="flex: 1;">
+                <input type="text" id="inputTopic" placeholder="Topic (e.g., Newtons Laws)" required style="flex: 1;">
+                <select id="selectContent" required style="flex: 1;">
+                    <option value="">Content Type</option>
+                    <option value="Quiz">15-Question Quiz</option>
+                    <option value="Assignment">Open Assignment</option>
+                </select>
+            </div>
+            
+            <button id="generateContentBtn" class="submit-btn" style="width: 100%;">Generate Content</button>
+        </div>
+        <section class="section-box" id="quizSection" style="display: none;">
+            <h2 class="sub-title">Quiz</h2>
+
+            <div id="questionCircles" class="question-circles"></div>
+
+            <div class="question-box">
+                <p id="quizQuestion">AI will place the question here…</p>
+
+                <div class="options-grid">
+                    <button class="opt" data-option="1"></button>
+                    <button class="opt" data-option="2"></button>
+                    <button class="opt" data-option="3"></button>
+                    <button class="opt" data-option="4"></button>
+                </div>
+                
+                <div class="quiz-nav">
+                    <button class="submit-btn nav-btn" id="prevQBtn" style="width: 48%; display: none;">Previous</button>
+                    <button class="submit-btn nav-btn" id="nextQBtn" style="width: 48%; display: none;">Next</button>
+                </div>
+
+                <button class="submit-btn" id="submitQuizBtn">Submit Quiz</button>
+            </div>
+        </section>
+
+        <section class="section-box" id="assignmentSection" style="display: none;">
+            <h2 class="sub-title">Assignment</h2>
+
+            <div class="assignment-ai-box">
+                <p id="assignmentAI">AI will place assignment questions here…</p>
+            </div>
+
+            <div class="assignment-controls">
+                <label class="upload-btn">+ Upload Completed Assignment
+                    <input type="file" id="fileUpload"/>
+                </label>
+
+                <button class="submit-btn" id="submitAssignBtn">Submit Assignment</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='quiz.js') }}"></script>
+</body>
+</html>

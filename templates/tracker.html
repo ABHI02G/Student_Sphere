@@ -1,0 +1,73 @@
+<!-- templates/tracker.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daily Tracker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='tracker.css') }}">
+</head>
+
+<body>
+  <div id="sidebar" class="sidebar glass">
+    <h2 class="sidebar-title">Student Sphere</h2>
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a class="active" href="{{ url_for('tracker') }}">Daily Tracker</a>
+    <a href="{{ url_for('dashboard') }}">Profile</a>
+    <a href="{{ url_for('dashboard') }}">Settings</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </div>
+
+  <div id="page-content" class="page-content">
+    <div class="navbar">
+      <button id="menuToggle" class="hamburger"><span></span><span></span><span></span></button>
+      <h1>Daily Activity Tracker</h1>
+    </div>
+
+    <div class="content">
+      <div class="card glass">
+        <h2>Grade Goals</h2>
+        <label for="currentGrade">Current Grade (%)</label>
+        <input type="number" id="currentGrade" class="input">
+        <label for="targetGrade">Target Grade for Next Month (%)</label>
+        <input type="number" id="targetGrade" class="input">
+        <p id="gradeWarning" class="warning">Grades must be between 0 and 100.</p>
+      </div>
+
+      <!-- DAILY circle -->
+      <button id="dailyCircle" class="big-glow-btn glass1">
+        <span id="daily-main">Your study hours to be improved (per Day)</span>
+        <small id="daily-sub" style="display:block;font-size:12px;margin-top:6px;opacity:0.85;"></small>
+      </button>
+
+      <!-- WEEKLY circle -->
+      <button id="weeklyCircle" class="big-glow-btn glass2">
+        <span id="weekly-main">Your study hours to be improved (per Week)</span>
+        <small id="weekly-sub" style="display:block;font-size:12px;margin-top:6px;opacity:0.85;"></small>
+      </button>
+
+      <div class="card glass">
+        <h2>Today's Activity</h2>
+        <p id="hourWarning" class="warning">There are only 24 hours in a day.</p>
+
+        <label for="studyHours">Study Hours</label>
+        <input type="number" id="studyHours" class="input">
+
+        <label for="sleepHours">Sleep Hours</label>
+        <input type="number" id="sleepHours" class="input">
+
+        <label for="physicalHours">Physical Activity Hours</label>
+        <input type="number" id="physicalHours" class="input">
+
+        <label for="leisureHours">Leisure Hours</label>
+        <input type="number" id="leisureHours" class="input">
+      </div>
+
+      <button id="saveProgressBtn" class="big-btn glass">Save Today’s Progress</button>
+      <button id="exportCsvBtn" class="glass small-btn">Download CSV</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='tracker.js') }}"></script>
+</body>
+</html>

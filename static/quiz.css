@@ -1,0 +1,227 @@
+/* GLOBAL */
+body {
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    background: linear-gradient(-45deg, #E3FDF5, #FFE6FA, #E3F2FD, #FCE4EC);
+    background-size: 600% 600%;
+    animation: flow 10s ease infinite;
+}
+
+@keyframes flow {
+    0% {background-position: 0 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0 50%;}
+}
+
+.page-title {
+    text-align: center;
+    font-size: 34px;
+    margin-top: 45px;
+    font-weight: 700;
+}
+
+/* XP BAR */
+.main-xp {
+    width: 80%;
+    margin: 15px auto;
+}
+
+.xp-bar {
+    width: 100%;
+    height: 16px;
+    background: #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#xpFill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(45deg,#69EACB,#EACCF8,#6654F1);
+    transition: width 0.4s ease;
+}
+
+/* SIDEBAR */
+.sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(15px);
+    padding-top: 80px;
+    border-right: 2px solid rgba(255,255,255,0.4);
+    transition: 0.4s ease;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+/* HAMBURGER */
+.hamburger {
+    position: fixed;
+    left: 35px;
+    top: 25px;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 1000;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(45deg,#69EACB,#EACCF8,#6654F1);
+    margin: 4px 0;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+/* PAGE BOXES */
+.section-box {
+    width: 80%;
+    margin: 35px auto;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.sub-title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+}
+
+/* QUESTION CIRCLES */
+.question-circles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.q-circle {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.09);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.q-circle.active {
+    background: black;
+    color: white;
+}
+
+/* QUESTION BOX */
+.question-box {
+    background: #fafafa;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+/* OPTIONS */
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.opt {
+    height: 85px;
+    border-radius: 14px;
+    border: none;
+    background: #ececf2;
+    font-size: 18px;
+    font-weight: 600;
+    color: #444;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.opt:hover {
+    background-color: #8570f2;
+    color: white;
+    transform: scale(1.06);
+    box-shadow: 0 0 16px #8570f2;
+}
+
+/* Selected */
+.opt.selected {
+    background-color: #8570f2;
+    color: white;
+    transform: scale(1.06);
+    box-shadow: 0 0 16px #8570f2;
+}
+
+/* ASSIGNMENT UI */
+.assignment-ai-box {
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 18px;
+    border: 2px solid rgba(0,0,0,0.1);
+    min-height: 120px;
+    margin-bottom: 20px;
+}
+
+.assignment-controls {
+    display: flex;
+    gap: 20px;
+}
+
+.upload-btn {
+    font-size: 26px;
+    background: #eee;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.upload-btn input {
+    display: none;
+}
+
+/* BUTTONS */
+.submit-btn {
+    background: black;
+    color: white;
+    border: none;
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 18px;
+    transition: 0.3s ease;
+}
+
+.option-card.wrong {
+    background: #ffe2e2;
+    border-color: #ff3b30;
+}

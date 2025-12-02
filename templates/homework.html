@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Homework & Assignments</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='hstyle.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
+
+</head>
+
+<body>
+
+<!-- unified navbar + sidebar (replace old navbar/sidebar on each page) -->
+<header class="unified-navbar" role="banner">
+  <div class="left">
+    <button id="menuToggle" class="unified-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+    </button>
+  </div>
+
+  <div class="title">Homework AI</div>
+
+  <div class="right">
+    <img id="userPfpUnified" class="nav-pfp" src="/static/pfp.jpg" alt="profile">
+    <div class="lvxp" aria-hidden="false">
+      <div id="levelUnified">Lv 1</div>
+      <div class="xp-mini"><div id="xpFillUnified" class="xp-fill" style="width:0%"></div></div>
+      <div id="xpTextUnified">0 XP</div>
+    </div>
+  </div>
+</header>
+
+<aside id="sidebar" class="unified-sidebar" aria-hidden="true">
+  <!-- nav links will be populated by js/nav.js (universal order) -->
+</aside>
+<!-- end unified navbar + sidebar -->
+
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="container">
+
+      <!-- CHAT -->
+      <section class="card chat-card">
+        <div class="card-head">
+          <h3>Homework AI Chat</h3>
+          <p class="muted">Ask doubts, upload images — get instant help.</p>
+        </div>
+
+        <div id="chatWindow" class="chat-window"></div>
+
+        <!-- TYPING INDICATOR BUBBLE -->
+        <div id="typingBubble" class="bubble assistant typing-bubble" style="display:none;">
+          <div class="typing-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <div class="composer">
+          <textarea id="chatInput" placeholder="Type your question... (Ctrl+Enter)"></textarea>
+
+          <div class="composer-actions">
+            <input id="fileInput" type="file" accept="image/*" style="display:none" />
+            <button id="attachBtn" class="icon-btn">+</button>
+            <button id="sendBtn" class="btn primary">Send</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TASKS -->
+      <section class="card tasks-card">
+        <div class="card-head">
+          <h4>Upcoming Assignments</h4>
+          <p class="muted">Track progress & due dates</p>
+        </div>
+
+        <div class="overview top-overview">
+          <div class="overview-row">
+            <strong>Overall Completion</strong>
+            <div id="overallPct" class="muted small">0%</div>
+          </div>
+
+          <div class="progress-track big">
+            <div id="overallBar" class="progress-fill large"></div>
+          </div>
+        </div>
+
+        <ul id="tasksList" class="tasks-list"></ul>
+
+        <div class="task-add">
+          <input id="newTitle" type="text" placeholder="Assignment title">
+          <input id="newDate" type="date">
+          <input id="newSubject" type="text" placeholder="Subject (optional)">
+          <button id="addTask" class="btn">Add</button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='hscript.js') }}"></script>
+  <script src="{{ url_for('static', filename='nav.js') }}"></script>
+<script src="{{ url_for('static', filename='userinfo.js') }}"></script>
+
+
+</body>
+</html>

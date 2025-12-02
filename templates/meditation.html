@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='meditation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
+</head>
+
+<body>
+
+<!-- unified navbar + sidebar (replace old navbar/sidebar on each page) -->
+<header class="unified-navbar" role="banner">
+  <div class="left">
+    <button id="menuToggle" class="unified-toggle" aria-label="Toggle menu">
+      <span class="bar"></span>
+    </button>
+  </div>
+
+  <div class="title">Student Sphere</div>
+
+  <div class="right">
+    <img id="userPfpUnified" class="nav-pfp" src="/static/pfp.jpg" alt="profile">
+    <div class="lvxp" aria-hidden="false">
+      <div id="levelUnified">Lv 1</div>
+      <div class="xp-mini"><div id="xpFillUnified" class="xp-fill" style="width:0%"></div></div>
+      <div id="xpTextUnified">0 XP</div>
+    </div>
+  </div>
+</header>
+
+<aside id="sidebar" class="unified-sidebar" aria-hidden="true">
+  <!-- nav links will be populated by js/nav.js (universal order) -->
+</aside>
+<!-- end unified navbar + sidebar -->
+<!-- ====================== -->
+<div id="pageContent" class="page-content">
+
+    <div class="med-box">
+        <img src="zen.png" class="zen-symbol">
+
+        <h2 id="exerciseText">Relax & Be Present</h2>
+
+        <div class="timer-display" id="timerDisplay">00:00</div>
+
+        <div class="time-options">
+            <button class="time-btn" data-min="2">2 min</button>
+            <button class="time-btn" data-min="5">5 min</button>
+
+            <input type="number" id="customMin"
+                placeholder="Custom (max 15)" min="1" max="15">
+        </div>
+
+        <button id="startBtn" class="start-btn">Start Session</button>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='meditation.js') }}"></script>
+<script src="{{ url_for('static', filename='userinfo.js') }}"></script>
+<script src="{{ url_for('static', filename='nav.js') }}"></script>
+</body>
+</html>

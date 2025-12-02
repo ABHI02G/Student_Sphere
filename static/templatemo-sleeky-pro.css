@@ -1,0 +1,361 @@
+/* ------------------------------------------------------
+   STUDENT SPHERE — CLEAN MODERN UI
+   Full CSS Rewrite (Navbar, Hero, Team, About, Contact)
+------------------------------------------------------- */
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7f9fb;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* ------------------------------------------------------
+                    NAVBAR
+------------------------------------------------------- */
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 14px 30px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    z-index: 999;
+    transition: 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-svg {
+    width: 42px;
+    height: 42px;
+}
+
+.logo-text {
+    font-size: 26px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FF6B6B, #28e4c6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 16px;
+    background: rgba(255,255,255,0.7);
+    padding: 8px 15px;
+    border-radius: 40px;
+    backdrop-filter: blur(8px);
+}
+
+.nav-menu a {
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #444;
+    transition: 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background: rgba(255, 107, 107, 0.15);
+    color: #FF6B6B;
+}
+
+.nav-menu a.active {
+    background: linear-gradient(135deg, #FF6B6B, #90A4FF);
+    color: white;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #333;
+    border-radius: 2px;
+}
+
+/* ------------------------------------------------------
+                    HERO SECTION
+------------------------------------------------------- */
+
+.hero {
+    margin-top: 90px;
+    height: 80vh;
+    background: linear-gradient(135deg, #FF6B6B, #FFAB91, #7FFFD4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-title {
+    font-size: 80px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #1d2b38, #4f6d82, #8bacbf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 4px;
+}
+
+/* ------------------------------------------------------
+                    TEAM SECTION
+------------------------------------------------------- */
+
+.services {
+    padding: 100px 20px;
+    background: #fcfcfe;
+}
+
+.team-heading {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ef5350, #7FFFD4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 50px;
+}
+
+.services-tabs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.service-tab {
+    padding: 25px;
+    background: white;
+    border-radius: 18px;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+
+    /* 🔥 Hover expand fix */
+    max-height: 180px;          /* default height */
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.service-tab:hover {
+    max-height: 500px;          /* expands on hover */
+    overflow: visible;
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.service-tab-icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.service-tab p {
+    margin-top: 10px;
+    line-height: 1.6;
+    font-size: 15px;
+    color: #555;
+}
+
+/* ------------------------------------------------------
+                    ABOUT SECTION
+------------------------------------------------------- */
+
+.about {
+    padding: 120px 20px;
+    background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+    color: white;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 46px;
+    background: linear-gradient(135deg, #7FFFD4, #FFAB91, #FF6B6B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: #b8c2ce;
+    max-width: 600px;
+    margin: 15px auto 50px;
+}
+
+.about-tech {
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.tech-card {
+    padding: 28px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(12px);
+    transition: 0.3s ease;
+
+    /* 🔥 Hover expand fix */
+    max-height: 180px;
+    overflow: hidden;
+}
+
+.tech-card:hover {
+    max-height: 500px;
+    overflow: visible;
+    transform: translateY(-5px);
+    border-color: #7FFFD4;
+}
+
+.tech-icon {
+    font-size: 30px;
+    background: linear-gradient(135deg, #FF6B6B, #FF8A65);
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.tech-title {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.tech-description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #cdd3df;
+}
+
+/* ------------------------------------------------------
+                    CONTACT SECTION
+------------------------------------------------------- */
+
+.contact {
+    padding: 120px 20px;
+    background: #f7f7fb;
+}
+
+.contact-content {
+    max-width: 900px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-item {
+    padding: 25px;
+    background: white;
+    border-radius: 15px;
+    border: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    gap: 20px;
+    transition: 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.contact-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #FF6B6B, #FF8A65);
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-details h4 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.contact-details p {
+    font-size: 15px;
+}
+
+/* ------------------------------------------------------
+                    MOBILE RESPONSIVE
+------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        flex-direction: column;
+        padding: 20px 0;
+        transition: 0.3s ease;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .main-title {
+        font-size: 50px;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .service-tab,
+    .tech-card {
+        max-height: none;   /* on small screens text always fully visible */
+    }
+}

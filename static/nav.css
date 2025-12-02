@@ -1,0 +1,171 @@
+/* css/nav.css
+   Unified Navbar + Sidebar (shared across all pages)
+   Matches your site's glassy gradients and works responsively.
+*/
+
+:root{
+  --nav-h:64px;
+  --sidebar-w:260px;
+  --accent1: #8570f2;
+  --accent2: #c68bff;
+  --glass: rgba(255,255,255,0.84);
+  --glass-weak: rgba(255,255,255,0.36);
+  --text:#111;
+}
+
+/* NAVBAR */
+.unified-navbar{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(14px);
+  z-index: 2200;
+  box-shadow: 0 6px 26px rgba(10,10,25,0.06);
+  padding: 0 16px;
+}
+
+/* Left area (menu) */
+.unified-navbar .left {
+  position: absolute;
+  left: 14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* center title */
+.unified-navbar .title {
+  font-weight:800;
+  font-size:18px;
+  letter-spacing:0.2px;
+  color:var(--text);
+}
+
+/* right meta: pfp, level & xp */
+.unified-navbar .right {
+  position: absolute;
+  right: 14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* profile picture */
+.unified-navbar .nav-pfp{
+  width:40px; height:40px; border-radius:50%;
+  object-fit:cover;
+  border:2px solid rgba(255,255,255,0.84);
+  box-shadow:0 8px 20px rgba(133,112,242,0.08);
+  cursor:pointer;
+}
+
+/* level / xp */
+.unified-navbar .lvxp {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  color: #1b1b1b;
+  font-size:13px;
+  min-width:150px;
+  justify-content:flex-end;
+}
+
+/* xp small bar */
+.unified-navbar .xp-mini {
+  width:90px;
+  height:8px;
+  background: rgba(0,0,0,0.06);
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow: inset 0 -2px 6px rgba(0,0,0,0.03);
+}
+.unified-navbar .xp-mini > .xp-fill {
+  height:100%;
+  width:0%;
+  background: linear-gradient(90deg,var(--accent1),var(--accent2));
+  transition: width .6s cubic-bezier(.2,.9,.2,1);
+}
+
+/* SIDEBAR */
+.unified-sidebar{
+  --w: var(--sidebar-w);
+  position: fixed;
+  top: var(--nav-h);
+  left: calc(-1 * var(--w));
+  width: var(--w);
+  height: calc(100vh - var(--nav-h));
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(14px);
+  border-right: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 6px 12px 40px rgba(12,18,30,0.06);
+  padding:18px;
+  transition: left .36s cubic-bezier(.2,.9,.2,1);
+  z-index:2100;
+}
+.unified-sidebar.open{ left: 0; }
+
+.unified-sidebar .links { display:flex; flex-direction:column; gap:8px; margin-top:6px; }
+.unified-sidebar a {
+  padding:12px 14px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:700;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.unified-sidebar a:hover{ background: linear-gradient(90deg, rgba(133,112,242,0.06), rgba(198,139,255,0.04)); transform: translateX(6px); }
+
+/* when sidebar open the page content can be shifted by existing page scripts using margin-left: var(--sidebar-w) */
+/* small screens */
+@media(max-width:1000px){
+  .unified-sidebar{ width: 84vw; left: calc(-1 * 84vw); }
+  .unified-sidebar.open{ left:0; }
+  .unified-navbar .lvxp{ display:none; } /* hide xp on super small devices to save space */
+}
+
+/* HAMBURGER (three bars -> cross) */
+.unified-toggle{
+  width:44px;
+  height:34px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:none;
+  background:none;
+  cursor:pointer;
+  padding:6px;
+  -webkit-tap-highlight-color: transparent;
+}
+.unified-toggle .bar{
+  display:block;
+  width:22px;
+  height:2.6px;
+  background: #111;
+  border-radius:3px;
+  transition: transform .36s cubic-bezier(.2,.9,.2,1), opacity .24s;
+  position:relative;
+}
+.unified-toggle .bar::before,
+.unified-toggle .bar::after{
+  content:"";
+  position:absolute; left:0; width:22px; height:2.6px; border-radius:3px; background:#111; transition: transform .36s cubic-bezier(.2,.9,.2,1), opacity .24s;
+}
+.unified-toggle .bar::before{ top: -7px; }
+.unified-toggle .bar::after{ top: 7px; }
+
+/* active -> cross */
+.unified-toggle.active .bar{ transform: rotate(45deg); }
+.unified-toggle.active .bar::before{ transform: rotate(90deg) translateX(0px); top:0; }
+.unified-toggle.active .bar::after{ opacity:0; transform: translateX(-6px); }
+
+/* small focus style */
+.unified-toggle:focus{ outline: none; box-shadow: 0 6px 18px rgba(133,112,242,0.08); border-radius:8px; }
+
+/* end file */

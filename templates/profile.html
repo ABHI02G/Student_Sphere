@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Student Profile — Neon Gaming</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='pstyle.css') }}">
+</head>
+<body>
+  <!-- NAV -->
+  <header class="navbar">
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    <div class="brand">
+      <h1 class="logo">Student Profile</h1>
+    </div>
+
+    <div class="right-meta">
+      <img id="navAvatar" class="nav-avatar" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="avatar">
+      <div class="level-box" id="levelBox" title="Level & XP">
+        <div id="levelText">Lv 1</div>
+        <div class="xp-wrap" aria-hidden="true"><div id="xpBar" class="xp-bar"></div></div>
+        <div id="xpText">0 / 100 XP</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <a href="#profile-sec">Profile</a>
+    <a href="#timetable-sec">Timetable</a>
+    <a href="#planner-sec">Weekly Planner</a>
+    <a href="#goals-sec">Goals</a>
+    <a href="#skills-sec">Skills</a>
+    <a href="#badges-sec">Badges</a>
+    <a href="#study-stats-sec">Study Stats</a>
+    <a href="#streak-sec">Streak</a>
+    <a href="#pomodoro-sec">Pomodoro</a>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content" id="content">
+    <!-- PROFILE -->
+    <section id="profile-sec" class="section-block">
+      <h2>Profile</h2>
+      <div class="profile-grid">
+        <div class="profile-left">
+          <div class="avatar-wrap">
+            <img id="profilePic" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="profile" class="profile-img">
+            <label class="upload-label neon-btn primary">
+              <input id="imageUpload" type="file" accept="image/*" hidden>
+              Upload Image
+            </label>
+          </div>
+        </div>
+
+        <div class="profile-right">
+          <div class="info-card">
+            <div class="info-row">
+              <label for="userName">Name</label>
+              <input id="userName" type="text" />
+            </div>
+            <div class="info-row">
+              <label for="userEmail">Email</label>
+              <input id="userEmail" type="email" />
+            </div>
+            <div class="info-row">
+              <label for="userCourse">Course</label>
+              <input id="userCourse" type="text" />
+            </div>
+            <div class="info-actions">
+              <button id="saveProfile" class="neon-btn primary">Save</button>
+              <button id="resetProfile" class="neon-btn ghost">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMETABLE -->
+    <section id="timetable-sec" class="section-block">
+      <h2>Editable Timetable</h2>
+      <div class="controls-row">
+        <button id="addRow" class="neon-btn secondary">Add Row</button>
+        <button id="addColumn" class="neon-btn secondary">Add Column</button>
+        <button id="deleteRow" class="neon-btn ghost">Delete Row</button>
+        <button id="deleteColumn" class="neon-btn ghost">Delete Column</button>
+      </div>
+      <table id="timetable" class="table editable-table">
+        <tr>
+          <th contenteditable="true">Day</th>
+          <th contenteditable="true">Subject</th>
+          <th contenteditable="true">Time</th>
+        </tr>
+        <tr>
+          <td contenteditable="true">Mon</td>
+          <td contenteditable="true">Math</td>
+          <td contenteditable="true">10 AM</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- WEEKLY PLANNER -->
+    <section id="planner-sec" class="section-block">
+      <h2>Weekly Planner</h2>
+      <div class="controls-row">
+        <button id="plannerAddCol" class="neon-btn secondary">Add Day</button>
+        <button id="plannerAddRow" class="neon-btn secondary">Add Slot</button>
+        <button id="plannerExport" class="neon-btn ghost">Export CSV</button>
+      </div>
+      <div class="planner-wrap">
+        <table id="planner" class="table editable-table planner-table">
+          <thead>
+            <tr>
+              <th contenteditable="true">Time</th>
+              <th contenteditable="true">Monday</th>
+              <th contenteditable="true">Tuesday</th>
+              <th contenteditable="true">Wednesday</th>
+              <th contenteditable="true">Thursday</th>
+              <th contenteditable="true">Friday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td contenteditable="true">08:00</td><td contenteditable="true"></td><td contenteditable="true"></td>
+              <td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td>
+            </tr>
+            <tr>
+              <td contenteditable="true">10:00</td><td contenteditable="true"></td><td contenteditable="true"></td>
+              <td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- GOALS -->
+    <section id="goals-sec" class="section-block">
+      <h2>Goals / Tasks</h2>
+      <div class="goal-box">
+        <input type="text" id="goalInput" placeholder="Add new goal..." />
+        <button id="addGoal" class="neon-btn primary">Add</button>
+      </div>
+      <ul id="goalList" class="goal-list"></ul>
+      <p class="muted">Complete tasks to earn XP & unlock badges ↓</p>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills-sec" class="section-block">
+      <div class="section-head">
+        <h2>Skills Progress</h2>
+        <div class="section-actions">
+          <button id="openAddSkill" class="neon-btn primary">Add Skill</button>
+          <button id="saveAll" class="neon-btn secondary">Save</button>
+        </div>
+      </div>
+      <div id="skillsList" class="skills-list"></div>
+    </section>
+
+    <!-- BADGES -->
+    <section id="badges-sec" class="section-block">
+      <h2>Achievement Badges</h2>
+      <div id="badgeContainer" class="badge-container" role="list" aria-label="Achievement badges"></div>
+    </section>
+
+    <!-- STUDY STATS -->
+    <section id="study-stats-sec" class="section-block">
+      <h2>Study Stats</h2>
+      <div class="controls-row" style="justify-content:center">
+        <button id="refreshStats" class="neon-btn primary">Refresh Charts</button>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <canvas id="performancePie"></canvas>
+        </div>
+
+        <div class="chart-card">
+          <canvas id="performanceLine"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEEKLY STREAK (Neon Flames) -->
+    <section id="streak-sec" class="section-block">
+      <h2>Weekly Streak</h2>
+
+      <div class="streak-card">
+        <div class="streak-info">
+          <div class="streak-metrics">
+            <div class="streak-current">
+              <div class="streak-num" id="streakCurrent">0</div>
+              <div class="streak-label">Current Streak</div>
+            </div>
+            <div class="streak-longest">
+              <div class="streak-num" id="streakLongest">0</div>
+              <div class="streak-label">Longest Streak</div>
+            </div>
+          </div>
+
+          <div class="streak-days" aria-hidden="false" id="streakDays"></div>
+
+          <div class="streak-actions">
+            <button id="viewBadgeGalleryBtn" class="neon-btn primary">View Badge Gallery</button>
+            <button id="manualCheckIn" class="neon-btn secondary">Mark Today</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POMODORO -->
+    <section id="pomodoro-sec" class="section-block">
+      <h2>Pomodoro Timer</h2>
+
+      <div class="pom-card">
+        <div class="pom-left">
+          <div class="timer-card">
+            <div id="timerDisplay">25:00</div>
+            <div id="sessionCount">Sessions: 0</div>
+          </div>
+        </div>
+
+        <div class="pom-right">
+          <div class="pom-controls">
+            <label>Work: <input id="workMins" type="number" min="1" value="25" /></label>
+            <label>Break: <input id="breakMins" type="number" min="1" value="5" /></label>
+            <div class="pom-buttons">
+              <button id="pomStart" class="neon-btn primary large">Start</button>
+              <button id="pomPause" class="neon-btn ghost large">Pause</button>
+              <button id="pomReset" class="neon-btn ghost large">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Unlock Modal (star badge) -->
+  <div id="unlockModal" class="modal" aria-hidden="true">
+    <canvas id="confettiCanvas"></canvas>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-badge">
+        <svg width="110" height="110" viewBox="0 0 24 24" fill="none" class="star-svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#fff266"/><stop offset="1" stop-color="#ffb347"/>
+            </linearGradient>
+            <filter id="f1" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#ffcc33" flood-opacity="0.5"/>
+            </filter>
+          </defs>
+          <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.402 8.174L12 18.897 4.664 23.17l1.402-8.174L.132 9.209l8.2-1.192z" fill="url(#g1)" filter="url(#f1)"/>
+        </svg>
+      </div>
+      <h3 id="modalTitle">Badge Unlocked!</h3>
+      <p id="modalSubtitle">You unlocked: <strong id="modalBadgeName">Champion</strong></p>
+      <div class="modal-avatar-preview">
+        <img id="modalAvatar" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="you">
+      </div>
+      <button id="closeModal" class="btn-primary">Nice!</button>
+    </div>
+  </div>
+
+  <!-- Skill Add/Edit Modal -->
+  <div id="skillModal" class="modal" aria-hidden="true">
+    <div class="modal-card small" role="dialog" aria-modal="true" aria-labelledby="skillModalTitle">
+      <h3 id="skillModalTitle">Add Skill</h3>
+      <div class="modal-form">
+        <label>Skill name</label>
+        <input id="skillName" type="text" placeholder="e.g. Python" />
+        <label>Percentage (0 - 100)</label>
+        <input id="skillPercent" type="number" min="0" max="100" value="75" />
+        <div class="modal-actions">
+          <button id="skillSave" class="btn-primary">Save</button>
+          <button id="skillCancel" class="btn-ghost">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BADGE GALLERY MODAL (G2) -->
+  <div id="badgeGalleryModal" class="modal" aria-hidden="true">
+    <div class="gallery-backdrop"></div>
+
+    <div class="gallery-panel" role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
+      <button id="closeGallery" class="gallery-close" title="Close">✕</button>
+      <h3 id="galleryTitle">Trophy Room</h3>
+
+      <div class="gallery-main">
+        <div class="gallery-left">
+          <button id="prevBadge" class="gallery-nav">‹</button>
+        </div>
+
+        <div class="gallery-center">
+          <div class="gallery-badge-wrap">
+            <div id="galleryBadgeIcon" class="gallery-badge-icon"></div>
+            <div id="galleryBadgeName" class="gallery-badge-name"></div>
+            <div id="galleryBadgeHint" class="gallery-badge-hint"></div>
+            <div id="galleryBadgeTime" class="gallery-badge-time muted"></div>
+          </div>
+
+          <div class="gallery-actions">
+            <button id="galleryShare" class="neon-btn primary">Copy Share Text</button>
+            <button id="galleryCloseBtn" class="neon-btn ghost">Close</button>
+          </div>
+        </div>
+
+        <div class="gallery-right">
+          <button id="nextBadge" class="gallery-nav">›</button>
+        </div>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid" aria-label="All badges"></div>
+    </div>
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{{ url_for('static', filename='pscript.js') }}"></script>
+</body>
+</html>

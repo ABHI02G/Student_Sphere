@@ -1,0 +1,452 @@
+/* ------------------------------------
+   GLOBAL DESIGN
+------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+@keyframes rainbow-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #c2e9fb, #E3FDF5, #FFE6FA, #EACCF8, #8570f2);
+  background-size: 400% 400%;
+  animation: rainbow-bg 10s ease infinite;
+}
+
+.glass {
+    backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 18px;
+}
+
+/* ------------------------------------
+   NAVBAR
+------------------------------------- */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    padding: 20px 0;
+    z-index: 20;
+}
+
+.glass-nav {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(14px);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sphere-logo {
+    width: 42px;
+    margin-right: 8px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #8570f2;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #6c4eff;
+    text-shadow: 0px 0px 8px rgba(108, 78, 255, 0.4);
+}
+
+.login-btn {
+    padding: 10px 24px;
+    background: #6c4eff;
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.login-btn:hover {
+    transform: scale(1.08);
+}
+
+/* Shrink effect */
+.navbar.shrink {
+    padding: 0 22px;
+    transform: scale(0.98);
+}
+
+/* ------------------------------------
+   HERO SECTION
+------------------------------------- */
+.hero-section {
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1250px;
+    padding: 40px 20px;
+    margin-inline: auto;
+    align-items: center;
+}
+
+.hero-text {
+    max-width: 550px;
+}
+
+.hero-text h1 {
+    font-size: 3.2rem;
+    line-height: 1.2;
+    color: #8570f2;
+}
+
+.hero-text p {
+    margin-top: 20px;
+    font-size: 1.18rem;
+    line-height: 1.65;
+    color: #333;
+}
+
+.get-started-btn {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 14px 36px;
+    background: #8570f2;
+    color: white;
+    border-radius: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.glow-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #8570f2;
+    color: white;
+}
+
+/* Parallax Hero Image */
+.parallax-container {
+  width: 520px;
+  height: auto;
+  perspective: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.parallax-img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+  transition: transform 0.15s ease-out, box-shadow 0.25s ease-out;
+  will-change: transform;
+}
+
+/* Hover depth boost */
+.parallax-container:hover .parallax-img {
+  box-shadow: 0 30px 60px rgba(0,0,0,0.22);
+  transform: scale(1.03);
+}
+
+/* ------------------------------------
+   PARALLAX HOVER
+------------------------------------- */
+.parallax-container {
+    perspective: 900px;
+}
+
+/* ------------------------------------
+   FEATURES
+------------------------------------- */
+.features-section {
+    padding: 110px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #8570f2;
+}
+
+.features-grid {
+    margin-top: 40px;
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    width: 280px;
+    padding: 25px;
+    border-radius: 18px;
+    transition: .3s ease;
+}
+
+.hover-rise:hover {
+    transform: translateY(-10px) scale(1.04);
+    box-shadow: 0 12px 26px rgba(0,0,0,0.15);
+}
+
+/* ------------------------------------
+   TEAM SECTION
+------------------------------------- */
+.team-section {
+    padding: 110px 20px;
+    text-align: center;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 26px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.team-card {
+    width: 240px;
+    padding: 24px;
+}
+
+/* ------------------------------------
+   CONTACT
+------------------------------------- */
+.contact-section {
+    padding: 110px 20px 140px;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 420px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border-radius: 14px;
+    border: none;
+    background: rgba(255,255,255,0.8);
+}
+
+.send-btn{
+    display: inline-block;
+    margin-top: 28px;
+    padding: 14px 36px;
+    background: #6c4eff;
+    color: white;
+    border-radius: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.send-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #8570f2;
+    color: white;
+}
+
+/* ------------------------------------
+   SCROLL REVEAL ANIMATION
+------------------------------------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --light-gray : #d6d2c8;
+  --dark-gray: #55524e;
+  --gray: #9b9484;
+  --dark-blue: #2b293e;
+  --light-blue: #35b7da;
+}
+
+  #computer {
+    position: absolute;
+    width: 340px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background:
+
+    /* Bottom Section */
+    repeating-linear-gradient(90deg, var(--gray) 0 10px, var(--light-gray) 10px 18px) 258px 236px / 64px 10px,
+    repeating-linear-gradient(90deg, var(--dark-gray) 0 10px, var(--light-gray) 10px 18px) 258px 246px / 64px 38px,
+    linear-gradient(var(--dark-gray), var(--dark-gray)) 166px 264px / 10px 14px,
+    linear-gradient(var(--light-gray) 10px, var(--dark-gray) 10px) 144px 248px / 80px 20px,
+    linear-gradient(90deg, var(--dark-gray) 10px, var(--gray) 10px) 124px 236px / 110px 48px,
+    linear-gradient(90deg, var(--gray) 10px, var(--light-gray) 10px) 90px 230px / 250px 60px,
+    linear-gradient(90deg, var(--gray) 10px, var(--light-gray) 10px) 100px 220px / 240px 80px,
+    linear-gradient(var(--dark-gray), var(--dark-gray)) 10px bottom / 330px 80px,
+    linear-gradient(var(--dark-gray), var(--dark-gray)) left bottom / 320px 70px,
+    
+    /* Top Section */
+    linear-gradient(90deg, var(--gray) 18px, var(--light-gray) 18px 26px, var(--gray) 26px 36px, var(--dark-gray) 36px 122px, var(--light-gray) 122px 160px, var(--gray) 160px) 120px 180px / 170px 10px,
+    linear-gradient(var(--gray) 10px, var(--dark-blue) 10px 150px, var(--gray) 150px) 130px 10px / 150px 160px,
+    linear-gradient(90deg, var(--gray) 10px, var(--dark-blue) 10px 180px, var(--gray) 180px) 110px 30px / 190px 120px,
+    linear-gradient(var(--gray), var(--gray)) 120px 20px / 170px 140px,
+    linear-gradient(var(--light-gray), var(--light-gray)) 110px top / 190px 200px,
+    linear-gradient(90deg, var(--gray) 10px, var(--light-gray) 10px) 90px 10px / 220px 180px,
+    linear-gradient(var(--gray), var(--gray)) 100px top / 200px 200px,
+    linear-gradient(var(--dark-gray), var(--dark-gray)) 40px top / 260px 200px,
+    linear-gradient(90deg, var(--dark-gray) 50%, var(--light-gray) 50%) 30px 10px / 280px 180px,
+
+    /* Back section */
+    linear-gradient(90deg, var(--dark-gray) 96px, var(--gray) 96px) 70px 210px / 216px 14px,
+    linear-gradient(var(--dark-gray), var(--dark-gray)) 90px 190px / 178px 30px;
+    background-repeat: no-repeat;
+  }
+
+  #computer::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 95px;
+    left: 175px;
+    background-color: var(--light-blue);
+    animation: hello 3500ms linear infinite forwards alternate;
+  }
+
+  @keyframes hello {
+    0%, 18% {
+      box-shadow: 
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      40px -30px 0 var(--light-blue),
+      40px -20px 0 var(--light-blue),
+      10px -30px 0 var(--light-blue),
+      10px -20px 0 var(--light-blue),
+      50px 0 0 var(--light-blue),
+      40px 10px 0 var(--light-blue),
+      30px 10px 0 var(--light-blue),
+      20px 10px 0 var(--light-blue),
+      10px 10px 0 var(--light-blue);
+    }
+    24%, 38% {
+      box-shadow:
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      50px -30px 0 var(--light-blue),
+      40px -20px 0 var(--light-blue),
+      0 -30px 0 var(--light-blue),
+      10px -20px 0 var(--light-blue),
+      50px 0 0 var(--light-blue),
+      40px 10px 0 var(--light-blue),
+      30px 0 0 var(--light-blue),
+      20px 10px 0 var(--light-blue),
+      10px 10px 0 var(--light-blue);
+    }
+    44%, 58% {
+      box-shadow:
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      50px -30px 0 var(--light-blue),
+      50px 0 0 var(--light-blue),
+      40px 10px 0 var(--light-blue),
+      30px -20px 0 var(--light-blue),
+      30px 0 0 var(--light-blue),
+      30px 10px 0 var(--light-blue),
+      10px -10px var(--light-blue),
+      0 -30px 0 var(--light-blue),
+      0 -20px 0 var(--light-blue),
+      0 10px 0 var(--light-blue);
+    }
+    64%, 78% {
+      box-shadow:
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      0 0 0 var(--light-blue),
+      50px -30px 0 var(--light-blue),
+      50px 0 0 var(--light-blue),
+      50px 10px 0 var(--light-blue),
+      30px -30px 0 var(--light-blue),
+      30px -20px 0 var(--light-blue),
+      30px 0 0 var(--light-blue),
+      30px 10px 0 var(--light-blue),
+      10px -10px var(--light-blue),
+      0 -30px 0 var(--light-blue),
+      0 -20px 0 var(--light-blue),
+      0 10px 0 var(--light-blue);
+    }
+    84%, 100% {
+      box-shadow:
+      50px -30px 0 var(--light-blue),
+      50px -10px 0 var(--light-blue),
+      50px 0 0 var(--light-blue),
+      50px 10px 0 var(--light-blue),
+      30px -30px 0 var(--light-blue),
+      30px -20px 0 var(--light-blue),
+      30px -10px 0 var(--light-blue),
+      30px 0 0 var(--light-blue),
+      30px 10px 0 var(--light-blue),
+      20px -10px 0 var(--light-blue),
+      10px -10px 0 var(--light-blue),
+      0 -30px 0 var(--light-blue),
+      0 -20px 0 var(--light-blue),
+      0 -10px var(--light-blue),
+      0 10px 0 var(--light-blue);
+    }
+  }

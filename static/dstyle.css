@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@keyframes rainbow-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #c2e9fb, #E3FDF5, #FFE6FA, #EACCF8, #8570f2);
+  background-size: 400% 400%;
+  animation: rainbow-bg 10s ease infinite;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.logo {
+  flex: 1;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #333;
+}
+
+.menu-toggle {
+  position: absolute;
+  left: 25px;
+  border: none;
+  background: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+}
+
+.profile img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 70px;
+  left: -270px;
+  width: 270px;
+  height: calc(100vh - 70px);
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
+  transition: 0.4s ease;
+  padding-top: 20px;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar a {
+  padding: 18px 30px;
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.sidebar a:hover {
+  background: rgba(255,255,255,0.6);
+}
+
+/* PAGE CONTENT */
+.page-content {
+  margin-top: 100px;
+  padding: 40px;
+  transition: 0.4s ease;
+}
+
+.page-content.active {
+  margin-left: 270px;
+}
+
+.content {
+  text-align: center;
+}
+
+.content h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+/* BUTTON GRID — BIGGER NOW */
+.button-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
+  padding: 20px 80px;
+}
+
+.cc-btn {
+  padding: 22px;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  background: transparent;
+  border: 3px solid;
+  border-image: linear-gradient(45deg, #69EACB, #EACCF8, #6654F1) 1;
+  transition: 0.3s;
+}
+
+.cc-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(255,0,255,0.5);
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 80px;
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* FLOATING LOGOUT BUTTON */
+.floating-logout {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #ff4b5c;
+  color: white;
+  padding: 18px 30px;
+  border-radius: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 5px 25px rgba(255, 0, 0, 0.4);
+  transition: 0.3s ease;
+  z-index: 2000;
+}
+
+.floating-logout:hover {
+  background: #e60023;
+  transform: scale(1.1);
+}
+.link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+}

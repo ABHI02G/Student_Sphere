@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Sphere Dashboard</title>
+
+  <!-- Original CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='dstyle.css') }}">
+
+  <!-- NEW Unified Navbar/Sidebar CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
+</head>
+
+<body>
+
+  <!-- ==========================
+       UNIFIED NAVBAR + SIDEBAR
+       ========================== -->
+  <header class="unified-navbar" role="banner">
+    <div class="left">
+      <button id="menuToggle" class="unified-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+      </button>
+    </div>
+
+    <div class="title">Student Sphere Dashboard</div>
+
+    <div class="right">
+      <img id="userPfpUnified" class="nav-pfp" src="/static/pfp.jpg" alt="profile">
+      <div class="lvxp">
+        <div id="levelUnified">Lv 1</div>
+        <div class="xp-mini">
+          <div id="xpFillUnified" class="xp-fill" style="width:0%"></div>
+        </div>
+        <div id="xpTextUnified">0 XP</div>
+      </div>
+    </div>
+  </header>
+
+  <aside id="sidebar" class="unified-sidebar"></aside>
+  <!-- ========================== -->
+
+  <!-- MAIN CONTENT -->
+  <div class="page-content" style="margin-top: 80px;">
+    <div class="content">
+      <h2>Welcome to Student Sphere</h2>
+      <p>Your personalized student dashboard.</p>
+
+      <div class="button-grid">
+
+        <!-- FIXED LINKS (updated Daily Tracker) -->
+        <a href="/homework" class="cc-btn link-btn">Homework AI</a>
+        <a href="/tracker" class="cc-btn link-btn">Daily Tracker</a>
+        <a href="/m" class="cc-btn link-btn">Math Solver</a>
+        <a href="/quiz" class="cc-btn link-btn">Quiz and Assignments</a>
+        <a href="/meditation" class="cc-btn link-btn">Meditation</a>
+        <a href="/profile" class="cc-btn link-btn">Student statistics</a>
+
+      </div>
+    </div>
+
+    <footer class="footer">
+      © 2025 Student Sphere — All Rights Reserved
+    </footer>
+  </div>
+
+  <!-- Original dashboard JS -->
+  <script src="{{ url_for('static', filename='dscript.js') }}"></script>
+
+  <!-- NEW Unified Navbar/Sidebar Scripts -->
+  <script src="{{ url_for('static', filename='nav.js') }}"></script>
+ <script src="{{ url_for('static', filename='userinfo.js') }}"></script>
+
+</body>
+</html>
