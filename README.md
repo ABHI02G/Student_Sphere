@@ -53,3 +53,61 @@ StudentSphere is a full-stack **student life management dashboard** that brings 
 [![Firebase](https://img.shields.io/badge/Database-Firebase-orange.svg)]()
 
 ---
+[![Live Backend](https://img.shields.io/badge/Render-Backend%20Live-brightgreen)](https://studentsphere-yqqa.onrender.com/)
+## 🌐 Live Deployment
+
+| Service | Status | Link |
+|--------|--------|------|
+| Backend API (Render) | 🟢 Live | https://studentsphere-yqqa.onrender.com/ |
+| Frontend UI | 🔴 Coming Soon | — |
+
+> 📌 Default Backend Base URL:  
+> `https://studentsphere-yqqa.onrender.com`
+
+---
+
+## 🔌 API Overview
+
+All endpoints start with:
+
+`https://studentsphere-yqqa.onrender.com`
+
+### Auth
+- `POST /auth/register`
+- `POST /auth/login`
+
+### Profile
+- `GET /profile`
+- `PUT /profile`
+
+### Marks & Attendance
+- `GET /marks`
+- `POST /marks`
+- `PUT /marks/:id`
+- `DELETE /marks/:id`
+
+- `GET /attendance`
+- `POST /attendance`
+
+### Notes
+- `GET /notes`
+- `POST /notes`
+- `PUT /notes/:id`
+- `DELETE /notes/:id`
+
+### Habits & Timetable
+- `GET /habits`
+- `POST /habits`
+- `PUT /habits/:id`
+- `DELETE /habits/:id`
+
+- `GET /timetable`
+- `POST /timetable`
+
+### Calendar
+- `GET /calendar/events`
+- `POST /calendar/sync`
+
+### AI (Optional)
+- `POST /ai/notes`
+- `POST /ai/quiz`
