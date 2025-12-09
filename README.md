@@ -51,18 +51,15 @@ StudentSphere is a full-stack **student life management dashboard** that brings 
 [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)]()
 [![Framework: Flask](https://img.shields.io/badge/Framework-Flask-lightgrey.svg)]()
 [![Firebase](https://img.shields.io/badge/Database-Firebase-orange.svg)]()
+[![Live Backend](https://img.shields.io/badge/Render-Backend%20Live-brightgreen)](https://studentsphere-yqqa.onrender.com/)
 
 ---
-[![Live Backend](https://img.shields.io/badge/Render-Backend%20Live-brightgreen)](https://studentsphere-yqqa.onrender.com/)
+
 ## 🌐 Live Deployment
 
 | Service | Status | Link |
 |--------|--------|------|
-| Backend API (Render) | 🟢 Live | https://studentsphere-yqqa.onrender.com/ |
-| Frontend UI | 🔴 Coming Soon | — |
-
-> 📌 Default Backend Base URL:  
-> `https://studentsphere-yqqa.onrender.com`
+| WEBSITE | 🟢 Live | https://studentsphere-yqqa.onrender.com/ |
 
 ---
 
